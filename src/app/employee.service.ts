@@ -25,4 +25,13 @@ export class EmployeeService {
   getEmployeeById(id: number): Observable<Employee>{
     return this.httpClient.get<Employee>(`${this.baseURL}/${id}`);
   }
+
+  // tslint:disable-next-line:ban-types
+  deleteEmployee(id: number): Observable<Object> {
+    return this.httpClient.delete(`${this.baseURL}/${id}`);
+  }
+  // tslint:disable-next-line:ban-types
+  updateEmployee(id: number, employee: Employee): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}`, employee);
+  }
 }
